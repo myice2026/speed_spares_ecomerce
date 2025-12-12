@@ -1,34 +1,22 @@
-package com.speedspares.backend.model;
+package com.speedspares.backend.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "Usuario")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario") 
+public class UsuarioDTO {
     private Long idUsuario;
-    
     private String nombre;
     private String apellidos;
     private String email;
-    private String password;
     private String telefono;
     private LocalDateTime fechaRegistro;
     private boolean activo;
-    
-    @Column(name = "es_proveedor_verificado") 
     private boolean esProveedorVerificado;
-    
     private Double latitud;
     private Double longitud;
 }
