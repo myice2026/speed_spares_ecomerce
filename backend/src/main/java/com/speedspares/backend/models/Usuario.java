@@ -3,31 +3,25 @@ package com.speedspares.backend.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "Usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Long id;
 
-    private String apellidos; // Agregamos esto porque tu base de datos lo pide
-    private String telefono;  // Agregamos esto también
-   
-   
-
-    @Column(unique = true, nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private String password;
-
     private String nombre;
+    private String apellidos;
+    private String email;
+    private String password;
+    private String telefono;
 
-    private String rol; // Aquí guardamos si es "vendedor" o "comprador" sin archivos extra
+    @Transient
+    private String rol;
 
     public Usuario() {}
 
-    // Getters y Setters completos
+    // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getNombre() { return nombre; }
